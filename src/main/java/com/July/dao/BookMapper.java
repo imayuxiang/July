@@ -1,6 +1,6 @@
-package com.ssmm.dao;
+package com.July.dao;
 
-import com.ssmm.model.Book;
+import com.July.model.Book;
 
 public interface BookMapper {
     int deleteByPrimaryKey(Integer id);

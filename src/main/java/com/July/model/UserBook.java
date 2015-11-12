@@ -1,4 +1,4 @@
-package com.ssmm.model;
+package com.July.model;
 
 public class UserBook {
     private Integer id;

@@ -1,7 +1,7 @@
-package com.ssmm.controller;
+package com.July.controller;
 
-import com.ssmm.model.User;
-import com.ssmm.service.UserService;
+import com.July.model.User;
+import com.July.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

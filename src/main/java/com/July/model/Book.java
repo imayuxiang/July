@@ -1,4 +1,4 @@
-package com.ssmm.model;
+package com.July.model;
 
 import java.math.BigDecimal;
 

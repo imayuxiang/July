@@ -1,8 +1,8 @@
-package com.ssmm.service.impl;
+package com.July.service.impl;
 
-import com.ssmm.dao.UserMapper;
-import com.ssmm.model.User;
-import com.ssmm.service.UserService;
+import com.July.dao.UserMapper;
+import com.July.model.User;
+import com.July.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

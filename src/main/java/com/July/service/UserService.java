@@ -1,6 +1,6 @@
-package com.ssmm.service;
+package com.July.service;
 
-import com.ssmm.model.User;
+import com.July.model.User;
 
 public interface UserService {
 	public User getUserById(int id);
