@@ -60,7 +60,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.ssmm.dao" />
+		<property name="basePackage" value="com.July.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 
@@ -97,7 +97,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
 		</tx:attributes>
 	</tx:advice>
 	<aop:config>
-		<aop:pointcut id="transactionPointcut" expression="execution(* com.ssmm.service..*Impl.*(..))" />
+		<aop:pointcut id="transactionPointcut" expression="execution(* com.July.service..*Impl.*(..))" />
 		<aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" />
 	</aop:config>
 

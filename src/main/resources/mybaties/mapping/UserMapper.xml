@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ssmm.dao.UserMapper">
+<mapper namespace="com.July.dao.UserMapper">
     <cache readOnly="true"/>
     
-	<resultMap id="BaseResultMap" type="com.ssmm.model.User">
+	<resultMap id="BaseResultMap" type="com.July.model.User">
 		<id column="id" property="id" jdbcType="INTEGER" />
 		<result column="username" property="username" jdbcType="VARCHAR" />
 		<result column="password" property="password" jdbcType="VARCHAR" />
 		<result column="age" property="age" jdbcType="INTEGER" />
 	</resultMap>
 
-	<resultMap type="com.ssmm.model.User" id="UserWithBooks"
+	<resultMap type="com.July.model.User" id="UserWithBooks"
 		extends="BaseResultMap">
-		<collection property="books" ofType="com.ssmm.model.Book">
+		<collection property="books" ofType="com.July.model.Book">
 			<id column="book_id" property="id" jdbcType="INTEGER" />
 		    <result column="book_name" property="name" jdbcType="VARCHAR" />
 		    <result column="book_price" property="price" jdbcType="DECIMAL" />
@@ -33,14 +33,14 @@
 		delete from user
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.ssmm.model.User">
+	<insert id="insert" parameterType="com.July.model.User">
 		insert into user (id, username, password,
 		age)
 		values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR},
 		#{password,jdbcType=VARCHAR},
 		#{age,jdbcType=INTEGER})
 	</insert>
-	<insert id="insertSelective" parameterType="com.ssmm.model.User">
+	<insert id="insertSelective" parameterType="com.July.model.User">
 		insert into user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -71,7 +71,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.ssmm.model.User">
+	<update id="updateByPrimaryKeySelective" parameterType="com.July.model.User">
 		update user
 		<set>
 			<if test="username != null">
@@ -86,7 +86,7 @@
 		</set>
 		where id = #{id,jdbcType=INTEGER}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="com.ssmm.model.User">
+	<update id="updateByPrimaryKey" parameterType="com.July.model.User">
 		update user
 		set username = #{username,jdbcType=VARCHAR},
 		password = #{password,jdbcType=VARCHAR},

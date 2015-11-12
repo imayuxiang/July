@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ssmm.dao.UserBookMapper" >
-  <resultMap id="BaseResultMap" type="com.ssmm.model.UserBook" >
+<mapper namespace="com.July.dao.UserBookMapper" >
+  <resultMap id="BaseResultMap" type="com.July.model.UserBook" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="book_id" property="bookId" jdbcType="INTEGER" />
@@ -19,13 +19,13 @@
     delete from userbook
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.ssmm.model.UserBook" >
+  <insert id="insert" parameterType="com.July.model.UserBook" >
     insert into userbook (id, user_id, book_id
       )
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{bookId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ssmm.model.UserBook" >
+  <insert id="insertSelective" parameterType="com.July.model.UserBook" >
     insert into userbook
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ssmm.model.UserBook" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.July.model.UserBook" >
     update userbook
     <set >
       <if test="userId != null" >
@@ -62,7 +62,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ssmm.model.UserBook" >
+  <update id="updateByPrimaryKey" parameterType="com.July.model.UserBook" >
     update userbook
     set user_id = #{userId,jdbcType=INTEGER},
       book_id = #{bookId,jdbcType=INTEGER}
