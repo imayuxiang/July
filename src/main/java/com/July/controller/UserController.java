@@ -34,8 +34,6 @@ public class UserController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public @ResponseBody
 	User showOneUser(@PathVariable("id") int id) {
-
-
 		return userService.getUserById(id);
 	}
 
@@ -44,6 +42,7 @@ public class UserController {
 	String demo() {
 		return new String("123");
 	}
+
 	@RequestMapping(value = "/d1", method = RequestMethod.GET)
 	public @ResponseBody
 	User get() {

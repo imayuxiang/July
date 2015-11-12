@@ -10,18 +10,10 @@
 		<result column="age" property="age" jdbcType="INTEGER" />
 	</resultMap>
 
-	<resultMap type="com.July.model.User" id="UserWithBooks"
-		extends="BaseResultMap">
-		<collection property="books" ofType="com.July.model.Book">
-			<id column="book_id" property="id" jdbcType="INTEGER" />
-		    <result column="book_name" property="name" jdbcType="VARCHAR" />
-		    <result column="book_price" property="price" jdbcType="DECIMAL" />
-		</collection>
-	</resultMap>
-
 	<sql id="Base_Column_List">
 		id, username, password, age
 	</sql>
+
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select
@@ -29,17 +21,20 @@
 		from user
 		where id = #{id,jdbcType=INTEGER}
 	</select>
+
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		delete from user
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.July.model.User">
+
+	<insert id="insert" parameterType="com.July.model.User" useGeneratedKeys="true" keyProperty="id">
 		insert into user (id, username, password,
 		age)
 		values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR},
 		#{password,jdbcType=VARCHAR},
 		#{age,jdbcType=INTEGER})
 	</insert>
+
 	<insert id="insertSelective" parameterType="com.July.model.User">
 		insert into user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
@@ -71,6 +66,7 @@
 			</if>
 		</trim>
 	</insert>
+
 	<update id="updateByPrimaryKeySelective" parameterType="com.July.model.User">
 		update user
 		<set>
@@ -86,6 +82,7 @@
 		</set>
 		where id = #{id,jdbcType=INTEGER}
 	</update>
+
 	<update id="updateByPrimaryKey" parameterType="com.July.model.User">
 		update user
 		set username = #{username,jdbcType=VARCHAR},
@@ -94,18 +91,4 @@
 		where id = #{id,jdbcType=INTEGER}
 	</update>
 
-	<select id="getAll" resultMap="UserWithBooks">
-		select
-		u.id as id,
-		u.username as username,
-		u.password as password,
-		u.age as age,
-		b.id as book_id,
-		b.name as book_name,
-		b.price as book_price
-		from
-		user u
-		left join userbook ub on u.id = ub.user_id
-		left join book b on ub.book_id = b.id 
-	</select>
 </mapper>

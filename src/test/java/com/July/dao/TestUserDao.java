@@ -47,7 +47,7 @@ public class TestUserDao {
 		logger.info(JSON.toJSONString(user));
 	}
 	
-	@Test
+//	@Test
 	public void getAll(){
 		List<User> users = userMapper.getAll();
 		logger.info(JSON.toJSONString(users));
